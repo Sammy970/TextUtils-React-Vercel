@@ -47,7 +47,7 @@ export default function Navbar(props) {
 
           {isAuthenticated && (
             <div className='mx-auto'>
-              <h5> Welcome, {user.name}</h5>
+              <h5 style={{color: props.mode === "light" ? "black":"white" }}> Welcome, {user.name}</h5>
             </div>
           )}
 
