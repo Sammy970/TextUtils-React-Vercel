@@ -4,6 +4,9 @@ import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import About from "./components/About";
 import Alerts from "./components/Alert";
+
+// import Login from "./components/Login";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -12,6 +15,7 @@ import {
 
 // let name = "Sammy";
 function App() {
+
   const [mode, setMode] = useState('light'); //Whether dark mode is enable or not
 
   const [alert, setAlert] = useState(null); //For alert
@@ -47,18 +51,18 @@ function App() {
     <>
       <Router>
         <Navbar title="Text Utils by Samyak" mode={mode} toggleMode={toggleMode} />
+
         <div className="container my-3">
           <Alerts alert={alert} />
         </div>
         <div className="container my-3">
           <Routes>
-            <Route exact path="/about" element={<About mode={mode}/>}>
-            </Route>
             <Route exact path="/" element={<TextForm heading="Enter text to analyze" mode={mode} showAlert={showAlert} />}>
             </Route>
-          </Routes>
+            <Route exact path="/about" element={<About mode={mode} />}>
+            </Route>
 
-          {/* <TextForm heading="Enter text to analyze" mode={mode} showAlert={showAlert} /> */}
+          </Routes>
         </div>
       </Router>
     </>
